@@ -1198,6 +1198,14 @@ export class Provider extends events.EventEmitter {
     }
   ): Promise<Session>;
 
+  switchProviderSession(
+    req: http.IncomingMessage | http2.Http2ServerRequest,
+    res: http.ServerResponse | http2.Http2ServerResponse,
+    options: {
+      id: string;
+    }
+  ): Promise<Session>;
+
   registerGrantType(
     name: string,
     handler: (ctx: KoaContextWithOIDC, next: () => Promise<void>) => CanBePromise<void>,
